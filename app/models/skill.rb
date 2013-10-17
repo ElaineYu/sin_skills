@@ -4,6 +4,11 @@ class Skill < ActiveRecord::Base
   validates :name, :presence => true
   validate :validate_context
 
+  #Not sure about this, check SQL designer
+  has_many :users
+  has_many :proficiencies, through: :users
+ 
+
   private
   def validate_context
     p self.context
